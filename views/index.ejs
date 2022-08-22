@@ -8,40 +8,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<body> <!-- main section -->
+    <!DOCTYPE html> <!-- this may be a typo -->
+<html lang="en"><!-- this may be a typo -->
+<head><!-- this may be a typo -->
+    <meta charset="UTF-8"><!-- this may be a typo -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- this may be a typo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- this may be a typo -->
+    <title>Document</title><!-- this may be a typo -->
+</head><!-- this may be a typo -->
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Todo List: </h1>
-    <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
-        <li class="item">
-            <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
-            <% }else{ %>
-                <span><%= items[i].thing %></span>
-            <% } %>    
-            <span class='fa fa-trash'></span>
-        </li>
-    <% } %>
-    </ul>
+    <h1>Todo List: </h1><!-- main title displayed -->
+    <ul class="todoItems"><!-- creates unorderd list with class -->
+    <% for(let i=0; i < items.length; i++) {%> <!-- use ejs to start for loop -->
+        <li class="item"> <!-- create a list item with class of item -->
+            <% if(items[i].completed === true) {%> <!-- ejs to check if an item in an array with a completed property is true -->
+                <span class='completed'><%= items[i].thing %></span> <!-- creating a span with a class and adding ejs to display name of the task -->
+            <% }else{ %> <!-- ejs for the else clause of statement -->
+                <span><%= items[i].thing %></span> <!-- ejs to diplay the name of the task -->
+            <% } %>    <!-- ejs to close else statement -->
+            <span class='fa fa-trash'></span> <!-- font awesome icon display inside span -->
+        </li> <!--  closin list item -->
+    <% } %> <!-- closing the ejs for loop -->
+    </ul> <!-- closing the unorder list -->
 
-    <h2>Left to do: <%= left %></h2>
+    <h2>Left to do: <%= left %></h2> <!-- create heading level 2 with text and using ejs to display  how many tasks are left to complete -->
 
-    <h2>Add A Todo:</h2>
+    <h2>Add A Todo:</h2> <!-- create another header -->
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
-    </form>
+    <form action="/addTodo" method="POST"> <!-- create a form with a post method that is adds route addtodo route -->
+        <input type="text" placeholder="Thing To Do" name="todoItem"> <!-- create an input field with placeholder text. the name gives it a unique value to reference later -->
+        <input type="submit"> <!-- creates a submit button to initiate action -->
+    </form> <!-- closes form tag -->
     
 
-    <script src='js/main.js'></script>
-</body>
-</html>
+    <script src='js/main.js'></script> <!-- links to main.js in js folder in public folder  -->
+</body> <!-- closes body tag -->
+</html> <!-- closes html tag -->
