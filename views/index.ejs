@@ -23,7 +23,7 @@
 <body>
     <h1>Todo List: </h1><!-- main title displayed -->
     <ul class="todoItems"><!-- creates unorderd list with class -->
-    <% for(let i=0; i < items.length; i++) {%> <!-- use ejs to start for loop -->
+        <% for(let i=0; i < items.length; i++) {%> <!-- use ejs to start for loop -->
         <li class="item"> <!-- create a list item with class of item -->
             <% if(items[i].completed === true) {%> <!-- ejs to check if an item in an array with a completed property is true -->
                 <span class='completed'><%= items[i].thing %></span> <!-- creating a span with a class and adding ejs to display name of the task -->
@@ -47,4 +47,4 @@
 
     <script src='js/main.js'></script> <!-- links to main.js in js folder in public folder  -->
 </body> <!-- closes body tag -->
-</html> <!-- closes html tag -->
+</html> closes html tag
