@@ -24,17 +24,17 @@ app.use(express.urlencoded({ extended: true })) //Tells express to decode and en
 app.use(express.json()) //Parses JSON content from incoming requests
 
 app.get('/',async (request, response)=>{
-    const todoItems = await db.collection('todos').find().toArray()
-    const itemsLeft = await db.collection('todos').countDocuments({completed: false})
-    response.render('index.ejs', { items: todoItems, left: itemsLeft })
-    // db.collection('todos').find().toArray()
-    // .then(data => {
-    //     db.collection('todos').countDocuments({completed: false})
-    //     .then(itemsLeft => {
-    //         response.render('index.ejs', { items: data, left: itemsLeft })
-    //     })
-    // })
-    // .catch(error => console.error(error))
+    // const todoItems = await db.collection('todos').find().toArray()
+    // const itemsLeft = await db.collection('todos').countDocuments({completed: false})
+    // response.render('index.ejs', { items: todoItems, left: itemsLeft })
+    db.collection('todos').find().toArray()
+    .then(data => {
+        db.collection('todos').countDocuments({completed: false})
+        .then(itemsLeft => {
+            response.render('index.ejs', { items: data, left: itemsLeft })
+        })
+    })
+    .catch(error => console.error(error))
 })
 
 // app.get('/',async (request, response)=>{ //starts a GET method when the root route is passed in, sets up req and res parameters
